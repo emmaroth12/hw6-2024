@@ -19,11 +19,13 @@ window.addEventListener("load", function() {
   video.autoplay = false;
   video.loop = false;
 
+  // Set initial volume display
   volumeInfo.textContent = Math.round(video.volume * 100) + "%";
 
   // Play Button
   playButton.addEventListener("click", function() {
     video.play();
+    volumeInfo.textContent = Math.round(video.volume * 100) + "%"; // Update volume text on play
     console.log("Play Video");
   });
 
@@ -74,7 +76,7 @@ window.addEventListener("load", function() {
   // Volume Slider
   volumeSlider.addEventListener("input", function() {
     video.volume = volumeSlider.value / 100; // Volume ranges from 0 to 1
-    volumeInfo.textContent = Math.round(video.volume * 100) + "%";
+    volumeInfo.textContent = Math.round(video.volume * 100) + "%"; // Update volume text
   });
 
   // Old School (Grayscale) Button
@@ -87,4 +89,5 @@ window.addEventListener("load", function() {
     video.style.filter = "none"; // Remove grayscale filter
   });
 });
+
 
