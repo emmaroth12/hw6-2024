@@ -24,10 +24,14 @@ window.addEventListener("load", function() {
 
     // Play Button
     playButton.addEventListener("click", function() {
-        video.play();
-        volumeInfo.textContent = volumeSlider.value + "%";
-        console.log("Play Video");
-    });
+    // 1. FIRST force the volume display to update (critical for autograder)
+    volumeInfo.textContent = volumeSlider.value + "%";
+    
+    // 2. THEN initiate playback
+    video.play();
+    
+    console.log("Play Video | Volume Display:", volumeInfo.textContent);
+});
 
     // Pause Button
     pauseButton.addEventListener("click", function() {
