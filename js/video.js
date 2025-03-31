@@ -11,13 +11,13 @@ var volumeInfo = document.getElementById("volume");
 var vintageButton = document.getElementById("vintage");
 var origButton = document.getElementById("orig");
 
-volumeInfo.textContent = Math.round(video.volume * 100) + "%";
-
 window.addEventListener("load", function() {
     // Initial setup for video controls
     video.autoplay = false;
     video.loop = false;
-
+    
+ volumeInfo.textContent = Math.round(video.volume * 100) + "%";
+    
  video.addEventListener('error', function() {
         console.error('Video error:', video.error);
     });
@@ -25,7 +25,7 @@ window.addEventListener("load", function() {
     // Play Button
     playButton.addEventListener("click", function() {
         video.play();
-        volumeInfo.textContent = Math.round(video.volume * 100) + "%";
+        volumeInfo.textContent = volumeSlider.value + "%";
         console.log("Play Video");
     });
 
